@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* body {
   min-width: 320px;
   min-height: 100vh;
   background-image: linear-gradient(
@@ -20,4 +20,4 @@ body {
     #007caa,
     #098fb3
   );
-}
+} */

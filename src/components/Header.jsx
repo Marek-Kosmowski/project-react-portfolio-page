@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import portfolioLogo from '../assets/logo-no-background.svg';
 import NavLink from './NavLink';
+import Modal from './Modal';
 
 const navLinks = [
   { path: '#home', title: 'Home' },
@@ -50,12 +51,23 @@ export default function Header() {
                 <Bars3Icon className='h-5 w-5' />
               </button>
             ) : (
-              <button className='flex items-center px-3 py-2 border rounded-md border-neutral-500 ' onClick={handleCloseMenuButton}>
+              <button
+                className='flex items-center px-3 py-2 border rounded-md border-neutral-500 '
+                onClick={handleCloseMenuButton}
+              >
                 <XMarkIcon className='h-5 w-5' />
               </button>
             )}
           </div>
         </nav>
+        {menuNavbarOpen && (
+          <Modal>
+            {navLinks.map((link, index) => {
+              const { title, path } = link;
+              return <NavLink key={index} title={title} path={path} />;
+            })}
+          </Modal>
+        )}
       </header>
     </>
   );

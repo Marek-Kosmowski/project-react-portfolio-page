@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { Bars3Icon } from '@heroicons/react/24/solid';
 import portfolioLogo from '../assets/logo-no-background.svg';
 import NavLink from './NavLink';
 
@@ -8,24 +10,36 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const [menuNavbarOpen, setMenuNavbarOpen] = useState(false);
   return (
     <>
       <header className=' bg-main-color text-white'>
-        <nav className='flex justify-between p-4 items-center'>
+        <nav className=' flex justify-between p-4 items-center'>
           <div className='w-20 h-20'>
             <img src={portfolioLogo} alt='logo image' />
           </div>
-          <ul className='flex gap-12'>
-            {navLinks.map((link, index) => {
-              const { title, path } = link;
-              return <NavLink key={index} title={title} path={path} />;
-            })}
-          </ul>
-          <button className='mr-4 px-1 py-1 bg-gradient-to-r from-cyan-500 via-sky-600 to-blue-500 rounded-full'>
-            <span className='block px-6 py-2 bg-main-color rounded-full hover:bg-[#1b263b] duration-200'>
-              Contact Me
-            </span>
-          </button>
+          <div className='md:block hidden w-3/4'>
+            <div className='flex justify-evenly items-center'>
+              <ul className='flex gap-12 '>
+                {navLinks.map((link, index) => {
+                  const { title, path } = link;
+                  return <NavLink key={index} title={title} path={path} />;
+                })}
+              </ul>
+              <button className='mr-4 px-1 py-1 bg-gradient-to-r from-cyan-500 via-sky-600 to-blue-500 rounded-full'>
+                <span className='block px-6 py-2 bg-main-color rounded-full hover:bg-[#1b263b] duration-200 '>
+                  Contact Me
+                </span>
+              </button>
+            </div>
+          </div>
+          <div className='md:hidden block'>
+            {!menuNavbarOpen && (
+              <button className='flex items-center px-3 py-2 border rounded border-slate-300 text-slate-200'>
+                <Bars3Icon className='h-5 w-5' />
+              </button>
+            )}
+          </div>
         </nav>
       </header>
     </>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Bars3Icon } from '@heroicons/react/24/solid';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import portfolioLogo from '../assets/logo-no-background.svg';
 import NavLink from './NavLink';
 
@@ -11,6 +11,14 @@ const navLinks = [
 
 export default function Header() {
   const [menuNavbarOpen, setMenuNavbarOpen] = useState(false);
+
+  const handleOpenMenuButton = () => {
+    setMenuNavbarOpen(true);
+  };
+  const handleCloseMenuButton = () => {
+    setMenuNavbarOpen(false);
+  };
+
   return (
     <>
       <header className=' bg-main-color text-white'>
@@ -34,9 +42,16 @@ export default function Header() {
             </div>
           </div>
           <div className='md:hidden block'>
-            {!menuNavbarOpen && (
-              <button className='flex items-center px-3 py-2 border rounded border-slate-300 text-slate-200'>
+            {!menuNavbarOpen ? (
+              <button
+                className='flex items-center px-3 py-2 border rounded-md border-neutral-500 '
+                onClick={handleOpenMenuButton}
+              >
                 <Bars3Icon className='h-5 w-5' />
+              </button>
+            ) : (
+              <button className='flex items-center px-3 py-2 border rounded-md border-neutral-500 ' onClick={handleCloseMenuButton}>
+                <XMarkIcon className='h-5 w-5' />
               </button>
             )}
           </div>

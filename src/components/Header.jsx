@@ -42,7 +42,7 @@ export default function Header() {
               </button>
             </div>
           </div>
-          <div className='md:hidden block'>
+          <div className='md:hidden block z-50'>
             {!menuNavbarOpen ? (
               <button
                 className='flex items-center px-3 py-2 border rounded-md border-neutral-500 '
@@ -66,6 +66,10 @@ export default function Header() {
               const { title, path } = link;
               return <NavLink key={index} title={title} path={path} />;
             })}
+            <button className=' px-1 py-1 w-1/2 h-10 bg-gradient-to-r from-cyan-500 via-sky-600 to-blue-500 rounded-full'>
+      
+                Contact Me
+            </button>
           </Modal>
         )}
       </header>

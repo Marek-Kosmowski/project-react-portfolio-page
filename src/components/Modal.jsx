@@ -1,8 +1,15 @@
+import { useRef } from 'react';
+import { createPortal } from 'react-dom';
+
 export default function Modal({ children }) {
-  return (
-    <>
-      <div className='flex flex-col justify-center items-center bg-neutral-700 rounded-lg shadow-xl shadow-neutral-600 animate-fade-up animate-duration-300 animate-ease-in list-none h-full '>{children}</div>
-    </>
+  const dialog = useRef();
+  return createPortal(
+    <dialog
+      className=' h-1/3 w-full  flex flex-col justify-evenly items-center bg-gray-800 list-none opacity-90'
+      ref={dialog}
+    >
+      {children}
+    </dialog>,
+    document.getElementById('modal')
   );
 }
-

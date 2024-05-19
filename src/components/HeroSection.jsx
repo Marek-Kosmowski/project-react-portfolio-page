@@ -3,10 +3,10 @@ import avatarImage from '../assets/avatar-new-new.png';
 export default function HeroSection() {
   return (
     <section>
-      <div className='grid grid-cols-1 sm:grid-cols-12 md:gap-12 '>
+      <div className='grid grid-cols-1 sm:grid-cols-12 md:gap-12 mt-20'>
         <div className='col-span-7 place-self-center text-center sm:text-left'>
           <h1 className=' text-main-text mb-4 text-4xl sm:text-5xl lg:text-6xl'>
-            Hello, I'm Marek
+            Hello, I&apos;m Marek
           </h1>
           <p className='text-para-text text-lg mb-6 lg:text-xl'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium

@@ -22,14 +22,14 @@ export default function Header() {
 
   return (
     <>
-      <header className=' bg-main-color text-white'>
-        <nav className=' flex justify-between p-4 items-center'>
+      <header className='fixed mx-auto top-0 left-0 right-0 z-20 bg-main-color text-white border-b border-gray-600 shadow-md shadow-gray-600'>
+        <nav className=' flex justify-between p-4 items-center '>
           <div className='w-20 h-20'>
             <img src={portfolioLogo} alt='logo image' />
           </div>
           <div className='md:block hidden w-3/4'>
-            <div className='flex justify-evenly items-center'>
-              <ul className='flex gap-12 '>
+            <div className='flex justify-end items-center gap-24'>
+              <ul className='flex justify-self-center gap-12 '>
                 {navLinks.map((link, index) => {
                   const { title, path } = link;
                   return <NavLink key={index} title={title} path={path} />;
@@ -42,7 +42,7 @@ export default function Header() {
               </button>
             </div>
           </div>
-          <div className='md:hidden block z-50'>
+          <div className='md:hidden '>
             {!menuNavbarOpen ? (
               <button
                 className='flex items-center px-3 py-2 border rounded-md border-neutral-500 '
@@ -61,14 +61,9 @@ export default function Header() {
           </div>
         </nav>
         {menuNavbarOpen && (
-          <Modal>
-            {navLinks.map((link, index) => {
-              const { title, path } = link;
-              return <NavLink key={index} title={title} path={path} />;
-            })}
+          <Modal links={navLinks}>
             <button className=' px-1 py-1 w-1/2 h-10 bg-gradient-to-r from-cyan-500 via-sky-600 to-blue-500 rounded-full'>
-      
-                Contact Me
+              Contact Me
             </button>
           </Modal>
         )}

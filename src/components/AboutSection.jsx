@@ -9,7 +9,7 @@ export default function AboutSection() {
           src={aboutImg}
           alt='about me image'
         />
-        <div className='text-center'>
+        {/* <div className='text-left'>
           <h2 className='text-2xl my-8'>About Me</h2>
           <p className=' text-para-text text-lg'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
@@ -23,7 +23,7 @@ export default function AboutSection() {
             accusamus! Reiciendis ipsam dolor doloribus. Quasi repellendus ut
             nihil ducimus saepe illo.
           </p>
-        </div>
+        </div> */}
       </div>
     </section>
   );

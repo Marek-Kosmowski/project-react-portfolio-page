@@ -22,7 +22,7 @@ export default function Header() {
 
   return (
     <>
-      <header className='fixed mx-auto top-0 left-0 right-0 z-20 bg-main-color text-white border-b border-gray-600 shadow-md shadow-gray-600'>
+      <header className='md:fixed md:mx-auto md:top-0 md:left-0 md:right-0 md:z-20 bg-main-color text-white border-b border-gray-600 shadow-md shadow-gray-600'>
         <nav className=' flex justify-between p-4 items-center '>
           <div className='w-20 h-20'>
             <img src={portfolioLogo} alt='logo image' />
@@ -42,7 +42,7 @@ export default function Header() {
               </button>
             </div>
           </div>
-          <div className='md:hidden '>
+          <div className='md:hidden z-40 '>
             {!menuNavbarOpen ? (
               <button
                 className='flex items-center px-3 py-2 border rounded-md border-neutral-500 '
@@ -60,14 +60,14 @@ export default function Header() {
             )}
           </div>
         </nav>
-        {menuNavbarOpen && (
-          <Modal links={navLinks}>
-            <button className=' px-1 py-1 w-1/2 h-10 bg-gradient-to-r from-cyan-500 via-sky-600 to-blue-500 rounded-full'>
-              Contact Me
-            </button>
-          </Modal>
-        )}
       </header>
+      {menuNavbarOpen && (
+        <Modal links={navLinks}>
+          <button className=' px-1 py-1 w-1/2 h-10 bg-gradient-to-r from-cyan-500 via-sky-600 to-blue-500 rounded-full'>
+            Contact Me
+          </button>
+        </Modal>
+      )}
     </>
   );
 }

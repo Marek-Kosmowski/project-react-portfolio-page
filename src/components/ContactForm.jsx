@@ -6,18 +6,17 @@ export default function ContactForm() {
   const { register, handleSubmit, reset } = useForm();
   const form = useRef();
 
-  // const onSubmit = (data) => console.log(data);
-
   const sendEmail = () => {
-    reset();
     emailjs
       .sendForm('contact_service', 'contact_form', form.current, {
         publicKey: '_YlVkgqlZ6o0APVfe',
       })
+
       .then(
         () => {
           console.log('SUCCESSS!');
         },
+        reset(),
         (error) => {
           console.log('FAILED...', error);
         }
